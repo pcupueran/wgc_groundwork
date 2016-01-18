@@ -2,7 +2,7 @@
   <!-- TODO- Perhaps re-jig this to fit your new design / layout -->
    <div id="menu">
     <p>Home</a>
-    <p> About </p> 
+    <p> About </p>
   </div>
 
   <div id="container">
@@ -14,13 +14,13 @@
       </thead>
       <tbody>
         <% lista = ["first_name", "last_name","dob", "gender", "phone_number","github", "twitter"] %>
-        <% lista.each do |field| %> 
+        <% lista.each do |field| %>
           <tr>
             <td><h5><%= field %></h5></td>
             <td><%= @profile[field]%></td>
           </tr>
         <% end %>
-      </tbody> 
+      </tbody>
     </table>
 
     <table id="employment_status">
@@ -35,7 +35,7 @@
       </tbody>
     </table>
 
-     
+
     <table id="codeacademy">
       <thead>
         <th colspan = "2"><h4>Codecademy</h4></th>
@@ -57,8 +57,8 @@
     </table>
     <h4>Learning experience</h4>
     <p><%= @profile["learning_experience"] %></p>
-          
-    <% about_me = ["about", "projects", "ambition", "rationale"] %> 
+
+    <% about_me = ["about", "projects", "ambition", "rationale"] %>
     <ul>
       <% about_me.each do |field| %>
         <li>
@@ -70,7 +70,7 @@
 
     <h4>How did you hear from us</h4>
     <p><%= @profile["how_did_you_hear"] %></p>
-    
+
     <div id="stats" class="box">
       <h3>Stats</h3>
       <!-- TODO - Set the contents of this span with JavaScript -->
@@ -117,8 +117,9 @@
     </div>
   <% else %>
     <div class="welcome">
-      <p>Welcome! Once you have updated the OAuth tokens, the link below will fetch your profile information.</p>
-
+      <p>
+        Welcome! Once you have updated the OAuth tokens, the link below will fetch your profile information.
+      </p>
       <a href="/authorise">Authorise</a>
     </div>
   <% end %>
@@ -127,19 +128,20 @@
   <div id="footer">
     <h5>CSS, HTML, JS and Ruby exercises by Patricia Cupueran</h5>
   </div>
-  
 
 
 <!-- Add your Javascript to this script tag -->
 <script language="javascript">
   console.log("I am Javascript!");
 
+  var profile_values = document.getElementsByClassName('profile-value');
+  var total_words = 0;
+
   /*Function that capitalize a given string*/
   function capitalize (string){
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
-  var profile_values = document.getElementsByClassName('profile-value');
-  var total_words = 0;
+
   /*Function tha removes underlines from a given string*/
   function removeUnderlines (string){
     //console.log("yes, I am defined");
@@ -149,12 +151,12 @@
       index = string.indexOf("_");
       if(index != -1){
         newString = string.substring(0,index) + " " + string.substring(index + 1);
-        string = newString; 
+        string = newString;
       }
     }
     return string;
   };
-  
+
   /*Function that renders properly (capitalize and without underlines) HTML elements when a tag name is given*/
   function renderElement (html_element_tag) {
     // body...
@@ -173,7 +175,8 @@
   // TODO - Count the number of words in the profile.
   // hint - look at what the innerHTML property provides.
   /*Function that counts the words in a given string*/
-  function countWords(string){
+  function countWords(string) {
+
     if(string === ""){
       return 0;
     }
@@ -188,10 +191,10 @@
       }
       return numberWords;
     }
-    
+
   };
 
-  
+
   /*Function that counts the number of words in the page, in all the profile*/
   function countWordsOfProfile(){
 
